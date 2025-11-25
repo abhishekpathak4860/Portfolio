@@ -1,54 +1,65 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from '@phosphor-icons/react';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "@phosphor-icons/react";
+import { Link } from "react-router";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
     id: 1,
-    title: 'Dashboard Analytics',
-    description: 'Modern web application dashboard with real-time analytics and data visualization',
-    image: '/images/project-1.jpg',
-    tech: ['React', 'TypeScript', 'Tailwind']
+    title: "Trekking Mantra",
+    description:
+      "Designed and implemented an end-to-end travel booking platform for adventure trekking, group tours, and customizable trip packages for customers",
+    image: "/images/trekkingmantra.jpeg",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Node.js", "MySQL"],
+    link: "https://trekkingmantra.com/",
   },
   {
     id: 2,
-    title: 'E-Commerce Platform',
-    description: 'Full-featured online shopping platform with payment integration',
-    image: '/images/project-2.jpg',
-    tech: ['Next.js', 'Node.js', 'MongoDB']
+    title: "Swasth Raho",
+    description:
+      "Built a scalable healthcare ecosystem (patients–doctors–hospitals) reducing onboarding time by 40% and improving overall system efficiency.Integrated AI-driven medical report analysis, increasing user engagement by 45% and enabling 24/7 automated health support.",
+    image: "/images/swasthRaho.jpeg",
+    tech: ["Next.js", "Node.js", "MongoDB", "JWT", "TypeScript", "Tailwind"],
+    link: "https://swasth-raho-9ehr.vercel.app/",
   },
   {
     id: 3,
-    title: 'Portfolio Website',
-    description: 'Creative portfolio showcase with stunning animations and 3D elements',
-    image: '/images/project-3.png',
-    tech: ['React', 'GSAP', 'Three.js']
+    title: "Innovate Hub",
+    description:
+      "Innovate Hub is a startup-focused platform that connects entrepreneurs, mentors, and investors. It streamlines idea validation, collaboration, and resource sharing to accelerate innovation.",
+    image: "/images/innovateHub.png",
+    tech: [
+      "Express.js",
+      "NextJsAuth",
+      "TailwindCSS",
+      "NodeJs",
+      "vercel",
+      "mongodb",
+    ],
+    link: "https://github.com/abhishekpathak4860/founders-hub",
   },
   {
     id: 4,
-    title: 'Mobile App Design',
-    description: 'Intuitive mobile application interface with seamless user experience',
-    image: '/images/project-4.jpg',
-    tech: ['React Native', 'Firebase', 'Redux']
+    title: "Chatify",
+    description:
+      "Engineered a real-time chat app with peer-to-peer video calling using Socket.IO and WebRTC",
+    image: "/images/chatify.jpeg",
+    tech: ["MERN", "Socket.IO", "WebRTC"],
+    link: "https://chat-app-pzif.vercel.app/",
   },
   {
     id: 5,
-    title: 'Social Media App',
-    description: 'Modern social networking platform with real-time messaging',
-    image: '/images/project-5.png',
-    tech: ['React', 'Socket.io', 'Express']
+    title: "GlobeInfo",
+    description:
+      "GlobeInfo is a dynamic and responsive web application that displays comprehensive information about countries around the world. Built using React and the REST Countries API, the app fetches real-time data to present users with details like country names, flags, capitals, populations, regions, and more.",
+    image: "/images/countries.jpeg",
+    tech: ["React", "REST Countries API"],
+    link: "https://pathak-countries.netlify.app/",
   },
-  {
-    id: 6,
-    title: 'Task Management',
-    description: 'Collaborative task management tool with team features',
-    image: '/images/project-6.png',
-    tech: ['Vue.js', 'Node.js', 'PostgreSQL']
-  }
 ];
 
 export default function ProjectsSection() {
@@ -67,12 +78,13 @@ export default function ProjectsSection() {
           duration: 1,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%'
-          }
+            start: "top 80%",
+          },
         }
       );
 
-      const cards = scrollContainerRef.current?.querySelectorAll('.project-card');
+      const cards =
+        scrollContainerRef.current?.querySelectorAll(".project-card");
       if (cards) {
         gsap.fromTo(
           cards,
@@ -85,8 +97,8 @@ export default function ProjectsSection() {
             stagger: 0.15,
             scrollTrigger: {
               trigger: scrollContainerRef.current,
-              start: 'top 80%'
-            }
+              start: "top 80%",
+            },
           }
         );
       }
@@ -106,7 +118,7 @@ export default function ProjectsSection() {
           ref={titleRef}
           className="text-3xl xl:text-5xl font-light mb-12 text-center"
         >
-          Featured <span className="gradient-text font-normal">Projects</span>
+          <span className="text-white font-normal">Projects</span>
         </h2>
 
         <div
@@ -143,10 +155,11 @@ export default function ProjectsSection() {
                     </span>
                   ))}
                 </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="group/btn hover:text-primary transition-colors duration-300"
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn hover:text-primary transition-colors duration-300 flex items-center"
                 >
                   View Project
                   <ArrowRight
@@ -154,7 +167,7 @@ export default function ProjectsSection() {
                     weight="bold"
                     className="ml-2 group-hover/btn:translate-x-1 transition-transform duration-300"
                   />
-                </Button>
+                </a>
               </div>
             </div>
           ))}

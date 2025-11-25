@@ -5,9 +5,7 @@ import App from "./App.tsx";
 import { AppWrapper } from "./components/common/PageMeta.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <AppWrapper>
-      <App />
-    </AppWrapper>
-  </StrictMode>
+  <AppWrapper>
+    <App />
+  </AppWrapper>
 );

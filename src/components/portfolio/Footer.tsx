@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { GithubLogo, LinkedinLogo, Heart } from '@phosphor-icons/react';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { GithubLogo, LinkedinLogo, Heart } from "@phosphor-icons/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,8 +20,8 @@ export default function Footer() {
           duration: 1,
           scrollTrigger: {
             trigger: footerRef.current,
-            start: 'top 90%'
-          }
+            start: "top 90%",
+          },
         }
       );
 
@@ -35,8 +35,8 @@ export default function Footer() {
             duration: gsap.utils.random(3, 5),
             repeat: -1,
             yoyo: true,
-            ease: 'power1.inOut',
-            delay: gsap.utils.random(0, 2)
+            ease: "power1.inOut",
+            delay: gsap.utils.random(0, 2),
           });
         });
       }
@@ -46,19 +46,25 @@ export default function Footer() {
   }, []);
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <footer ref={footerRef} className="relative py-12 px-4 xl:px-8 border-t border-border/30">
-      <div ref={particlesRef} className="absolute inset-0 overflow-hidden pointer-events-none">
+    <footer
+      ref={footerRef}
+      className="relative py-12 px-4 xl:px-8 border-t border-border/30"
+    >
+      <div
+        ref={particlesRef}
+        className="absolute inset-0 overflow-hidden pointer-events-none"
+      >
         {[...Array(15)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1 h-1 rounded-full bg-primary/40"
             style={{
               left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
+              top: `${Math.random() * 100}%`,
             }}
           />
         ))}
@@ -71,33 +77,36 @@ export default function Footer() {
               Abhishek Pathak
             </h3>
             <p className="text-sm xl:text-base text-muted-foreground">
-              Full-Stack Web Developer crafting digital experiences with passion and precision.
+              Full-Stack Web Developer crafting digital experiences with passion
+              and precision.
             </p>
           </div>
 
           <div>
-            <h4 className="text-base xl:text-lg font-light mb-4 text-foreground">Quick Links</h4>
+            <h4 className="text-base xl:text-lg font-light mb-4 text-foreground">
+              Quick Links
+            </h4>
             <nav className="flex flex-col gap-2">
               <button
-                onClick={() => scrollToSection('home')}
+                onClick={() => scrollToSection("home")}
                 className="text-sm xl:text-base text-muted-foreground hover:text-primary transition-colors duration-300 text-left"
               >
                 Home
               </button>
               <button
-                onClick={() => scrollToSection('about')}
+                onClick={() => scrollToSection("about")}
                 className="text-sm xl:text-base text-muted-foreground hover:text-primary transition-colors duration-300 text-left"
               >
                 About
               </button>
               <button
-                onClick={() => scrollToSection('projects')}
+                onClick={() => scrollToSection("projects")}
                 className="text-sm xl:text-base text-muted-foreground hover:text-primary transition-colors duration-300 text-left"
               >
                 Projects
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection("contact")}
                 className="text-sm xl:text-base text-muted-foreground hover:text-primary transition-colors duration-300 text-left"
               >
                 Contact
@@ -106,10 +115,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-base xl:text-lg font-light mb-4 text-foreground">Connect</h4>
+            <h4 className="text-base xl:text-lg font-light mb-4 text-foreground">
+              Connect
+            </h4>
             <div className="flex gap-4">
               <a
-                href="https://github.com"
+                href="https://github.com/abhishekpathak4860"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-3 rounded-lg hover:neon-glow transition-all duration-300 group"
@@ -121,7 +132,7 @@ export default function Footer() {
                 />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/abhishek-pathak-2118a025a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-3 rounded-lg hover:neon-glow transition-all duration-300 group"
@@ -142,7 +153,11 @@ export default function Footer() {
             <span className="inline-flex items-center gap-1">
               <span>•</span>
               <span>Made with</span>
-              <Heart size={16} weight="fill" className="text-primary animate-pulse" />
+              <Heart
+                size={16}
+                weight="fill"
+                className="text-primary animate-pulse"
+              />
             </span>
           </p>
         </div>
